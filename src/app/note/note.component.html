@@ -1,0 +1,60 @@
+<div id="layout">
+	<div>
+	<ul class="noteList">
+	  <li *ngFor="let note of notes" [class.completed]="note.completed" [class.editing]="note.editing">
+		<!--<span class="badge">{{note._id}}</span> {{note.heading}}-->
+			<div class = "view">
+				<!--
+				<label>heading:
+				  <input [(ngModel)]="note.heading" placeholder="type here your text">
+				</label>
+				-->
+				
+				<input class="toggle" type="checkbox" (click)="toggleCompletion(note)" [checked]="note.completed">
+				
+				<label (dblclick)="editNote(note)">{{note.heading}}</label>
+								
+				<button class="buttonsWhileView" (click)="deleteNote(note)">удалить</button>
+				<select name="priority" class="selcls">
+					<option value=”GR”>Green</option>		 
+					<option value=”YE”>Yellow</option>
+					<option value=”BL”>Black</option>	 
+				</select>
+
+				
+			</div>	
+			<div class="EditBlock" *ngIf="note.editing">
+				<input class="edit" [value]="note.heading" #editednote (blur)="stopEditing(note, editednote.value)" (keyup.enter)="saveChanges(note, editednote.value)" (keyup.escape)="cancelEditingNote(note)">
+				<button class="buttonsWhileView" (click)="cancelEditingNote(note)">Отмена</button>
+				<!--<button class="buttonsWhileView" (click)="saveChanges(note, editednote.value)">save</button>-->				
+			</div>
+			
+			<div class="forDate"> Here you can change time </div>
+	  </li>
+	</ul>
+		
+	</div>
+	
+	<!--
+	<div>
+		<input type="date" name="releaseDate" [(ngModel)]="tempDate">
+		<span class="badge">!!! {{tempDate}} !!!</span>
+	</div>
+	-->
+
+	<div id="addButton" *ngIf="needToAdd">
+		<button class="clear" (click)="showAddDiv()">add new</button>
+	</div>
+
+
+	<div *ngIf="needToAdd === false">
+		<input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="tempNote" (keyup.enter)="addNewNote()">
+		<button class="clear" (click)="addNewNote()">save</button>
+	</div>
+
+	<div id="todoistButton" *ngIf="needToAdd">
+		<button class="clear" (click)="tryTodoist()">get tosoist</button>
+	</div>
+	
+	
+</div>

@@ -1,0 +1,42 @@
+<div id="rightColumn">
+	<p>
+	  Импортируйте свои задачи из todoist!
+	</p>
+
+	<div>
+		<button class="todoistButton" (click)="getTodoistAccountAccess()">Разрешить доступ</button>
+	</div>
+
+	<!--
+	<div>
+	
+		<button class="todoistButton" (click)="getProjectsList()">Список проектов</button>
+	</div>
+	
+	<div>
+	
+		<button class="todoistButton" (click)="getNotesFromTodoist()">Список заметок</button>
+	</div>
+	-->
+	
+	<!-- Список с наименованием проектов для выбора!!! -->
+	<div id="layout">
+		<ul class="projectsList">
+		  <li *ngFor="let project of projects" (click)="onSelect(project)">
+			<!--<span class="badge">{{note._id}}</span> {{note.heading}}-->
+				<div class = "view">
+					
+					<!-- <label>{{project.id}}   {{project.name}}</label> -->
+					<span class="badge">{{project.id}}</span> {{project.name}}
+													
+				</div>	
+
+		  </li>
+		</ul>
+			
+	</div>	
+	
+	
+</div>
+
+
