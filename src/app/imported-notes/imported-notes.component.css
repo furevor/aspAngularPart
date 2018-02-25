@@ -1,19 +1,19 @@
 #rightColumn {
-	width:400px;
+	width:300px;
 	float:right;
 	border: 1px solid #ededed;
-	margin-right: 50px;
+	margin-right: 100px;
 	margin-top: 22px;
 	background: white;
 	
-	
 }
 
 
-
-.todoistButton {
-	margin:0 auto;
+div .centerButton {
+	padding: 5px;
+	text-align: center;	
 }
+
 
 .todoistButton {
   display: inline-block;
@@ -29,6 +29,7 @@
   border-radius: 2px;
   background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
   transition: all .218s ease 0s;
+  margin: 0 auto;
 }
 .todoistButton:hover {
   color: rgb(24,24,24);
