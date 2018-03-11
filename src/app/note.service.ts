@@ -11,9 +11,9 @@ import {of} from 'rxjs/observable/of';
 export class NoteService {
 
   private notesUrl = '/api/tasks';
-  private accessUrl = '/api/access';
+  private accessUrl = '/api/import/access';
   private importUrl = '/api/import';
-  private clearUrl = '/api/clear';
+  private clearUrl = '/api/import/clear';
 
   constructor(private messageService: MessageService, private http: HttpClient) {
   }
